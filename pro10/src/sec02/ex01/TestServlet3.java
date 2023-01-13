@@ -29,17 +29,15 @@ public class TestServlet3 extends HttpServlet {
 		String url = request.getRequestURL().toString();
 		String mapping = request.getServletPath();
 		String uri = request.getRequestURI();
-		String javabus = request.getRequestedSessionId()();
-		
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<title>Test Servlet3</title>");
 		out.println("</head>");
 		out.println("<body bgcolor='red'>");
-		out.println("<b>TestServlet3입니다.</b><br>");
-		out.println("<b>컨텍스트명 : "+ context + "</b><br>");
-		out.println("<b>전체경로 : "+ url +"<b><br>");
-		out.println("<b>매핑명 : "+mapping+"<b><br>");
+		out.println("<b>TestServlet3�Դϴ�.</b><br>");
+		out.println("<b>���ؽ�Ʈ�� : "+ context + "</b><br>");
+		out.println("<b>��ü��� : "+ url +"<b><br>");
+		out.println("<b>���θ� : "+mapping+"<b><br>");
 		out.println("<b>URI : " + uri + "<b>");	
 		out.println("</body>");
 		out.println("</html>");
