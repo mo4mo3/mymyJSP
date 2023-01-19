@@ -19,7 +19,7 @@
    m.setName(name);
    m.setEmail(email);
 
-   MemberDAO  memberDAO=new MemberDAO();
+   MemberDAO memberDAO=new MemberDAO();
    memberDAO.addMember(m);
    List membersList = memberDAO.listMembers();	
 %>
