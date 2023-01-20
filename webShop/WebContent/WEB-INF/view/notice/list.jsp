@@ -185,10 +185,10 @@
 					for (Notice n  : list){ 
 					pageContext.setAttribute("n", n);
 					%>--%>
-					<c:forEach var="n " items="${list}">
+					<c:forEach var="n " items="${list}" varstatus="st">
 					<tr>
-						<td>${n.id} </td>
-						<td class="title indent text-align-left"><a href="detail?id=${n.id}"></a>${n.title}</td>
+						<td>${st.index }/ ${n.id} </td>
+						<td class="title indent text-align-left"><a href="detail?id=${n.id}">${n.title}</a></td>
 						<td>${n.writerId} </td>
 						<td>${n.regdate}</td>
 						<td>${n.hit}</td>
@@ -213,8 +213,9 @@
 		
 	</div>
 	<ul class="-list- center">
-		<li><a class="-text- orange bold" href="?p=1&t=&q=" >1</a></li>
-				
+	<c:forEach var="i" begin="0" end="4">
+		<li><a class="-text- orange bold" href="?p=${1+i }&t=&q=" >${1+i }</a></li>
+	</c:forEach>			
 	</ul>
 	<div>
 		

@@ -34,6 +34,7 @@ public class NoticeListController extends HttpServlet{
 			 Connection con = DriverManager.getConnection(url, "scott", "tiger");
 			 Statement st = con.createStatement();
 			 ResultSet rs = st.executeQuery(sql);
+			
 			while(rs.next()) {
 			int id = rs.getInt("ID");
 			String title = rs.getString("TITLE");
