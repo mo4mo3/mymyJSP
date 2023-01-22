@@ -23,7 +23,7 @@ public class NoticeDetailController extends HttpServlet {
 			throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 
-		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
+		String url = "jdbc:oracle:thin:@localhost:1521/xe";
 		String sql = "SELECT * FROM NOTICE WHERE ID=?";
 
 		try {
@@ -43,7 +43,7 @@ public class NoticeDetailController extends HttpServlet {
 
 			Notice notice = new Notice(id, title, writerId, regdate, hit, files, content);
 
-			request.setAttribute("n", notice);
+//			request.setAttribute("n", notice);
 			// request.setAttribute("title", title);
 			// request.setAttribute("writerId", writerId);
 			// request.setAttribute("regdate", regdate);

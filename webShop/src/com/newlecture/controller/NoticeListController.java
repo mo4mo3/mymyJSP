@@ -26,7 +26,7 @@ public class NoticeListController extends HttpServlet{
 		
 		List<Notice> list = new ArrayList<>();
 				
-		 String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
+		 String url = "jdbc:oracle:thin:@localhost:1521/xe";
 		 String sql = "SELECT * FROM NOTICE";
 		 
 		 try {
