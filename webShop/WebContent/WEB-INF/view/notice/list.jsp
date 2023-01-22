@@ -4,7 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 
 <!DOCTYPE html>
@@ -189,7 +189,7 @@
 								<td class="title indent text-align-left"><a
 									href="detail?id=${n.id}">${n.title}</a></td>
 								<td>${n.writerId}</td>
-								<td>${n.regdate}</td>
+								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${n.regdate}" /></td>
 								<td>${n.hit}</td>
 							</tr>
 						</c:forEach>
@@ -208,9 +208,9 @@
 			<div class="margin-top align-center pager">
 
 				<div>
-				<c:set var="page" value="${(param.p == null)?1:param.p }" />
-				<c:set var="startNum" value="${page-(page-1)%5" }/>
-				<c:set var="lastNum" value="23" />
+					<c:set var="page" value="${(param.p == null)?1:param.p }" />
+					<c:set var="startNum" value="${page-(page-1)%5" }/>
+					<c:set var="lastNum" value="23" />
 					<c:if test="${startNum>1 }">
 						<c:set var="" value="" />
 					</c:if>
@@ -221,7 +221,7 @@
 						onclick="alert('이전 페이지가 없습니다.');">이전</span>
 
 				</div>
-		
+
 
 				<ul class="-list- center">
 					<c:forEach var="i" begin="0" end="4">
