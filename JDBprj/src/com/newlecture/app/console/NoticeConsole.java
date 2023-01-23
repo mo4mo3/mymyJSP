@@ -18,14 +18,14 @@ public class NoticeConsole {
 
 		service = new NoticeService();
 		page = 1;
-		searchField="";
+		searchField="TITLE";
 		searchWord ="";
 
 	}
 
 	public void printNoticeList() throws ClassNotFoundException, SQLException {
 
-		List<Notice> list = service.getList(page);
+		List<Notice> list = service.getList(page, searchField, searchWord);
 		int count = service.getCount();
 		int lastPage = count / 10; // 100 -> 10, 90 ->9, 93/10->9
 		lastPage = count % 10 > 0 ? lastPage + 1 : lastPage;
