@@ -11,11 +11,15 @@ public class NoticeConsole {
 
 	private NoticeService service;
 	private int page;
+	private String searchField;
+	private String searchWord;
 
 	public NoticeConsole() {
 
 		service = new NoticeService();
 		page = 1;
+		searchField="";
+		searchWord ="";
 
 	}
 
@@ -41,7 +45,7 @@ public class NoticeConsole {
 	public int inputNoticeMenu() {
 		Scanner scan = new Scanner(System.in);
 
-		System.out.printf("1.상세조회/2.이전/3.다음/4.글쓰기/5.종료>");
+		System.out.printf(" 1.상세조회 /2.이전 / 3.다음 / 4.글쓰기 / 5.검색  / 6. 종료 >");
 		String menu_ = scan.nextLine();
 		int menu = Integer.parseInt(menu_);
 		return menu;
@@ -74,6 +78,17 @@ public class NoticeConsole {
 		}
 		page++;
 
+	}
+
+	public void inputSearchWord() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("검색 범주(title/content/writerId)중에 하나를 입력하세요");
+		System.out.println(" > ");
+		searchField = scan.nextLine();
+		
+		System.out.println("검색어   >");
+		searchWord = scan.nextLine();
+		
 	}
 
 }
