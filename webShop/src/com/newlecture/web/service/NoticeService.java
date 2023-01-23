@@ -7,12 +7,12 @@ import com.newlecture.web.entity.Notice;
 public class NoticeService {
 	public List<Notice> getNoticeList() {
 
-		return getNoticeList("title","",1);
+		return getNoticeList("title", "", 1);
 	}
 
 	public List<Notice> getNoticeList(int page) {
 
-		return getNoticeList("title","",page);
+		return getNoticeList("title", "", page);
 	}
 
 	public List<Notice> getNoticeList(String field, String query, int pages) {
@@ -37,16 +37,14 @@ public class NoticeService {
 	}
 
 	public Notice getNextNotice(int id) {
-		String sql = "SELECT * FROM NOTICE" +
-		"	WHERE ID = ( " +
-		"	SELECT ID FROM NOTICE " +
-		" 	WHERE REGDATE > (SELECT REGDATE FROM NOTICE WHERE ID=3)" +
-		"	AND ROWNUM = 1" +
-		")";
+		String sql = "SELECT * FROM NOTICE" + "	WHERE ID = ( " + "	SELECT ID FROM NOTICE "
+				+ " 	WHERE REGDATE > (SELECT REGDATE FROM NOTICE WHERE ID=3)" + "	AND ROWNUM = 1" + ")";
 		return null;
 	}
 
 	public Notice getPrevNotice(int id) {
+		String sql = "SELECT * FROM NOTICE" + "	WHERE ID = ( " + "	SELECT ID FROM NOTICE "
+				+ " 	WHERE REGDATE > (SELECT REGDATE FROM NOTICE WHERE ID=3)" + "	AND ROWNUM = 1" + ")";
 		return null;
 	}
 }
