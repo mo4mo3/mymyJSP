@@ -19,8 +19,8 @@ public class NoticeService {
 	private String driver = "oracle.jdbc.driver.OracleDriver";
 
 	public List<Notice> getList(int page) throws ClassNotFoundException, SQLException {
-		int start = 1 + (page-1)*10; //1 ,11 , 21, 31 ...
-		int end =  10*page; //10 , 20, 30, 40.....
+		int start = 1 + (page - 1) * 10; // 1 ,11 , 21, 31 ...
+		int end = 10 * page; // 10 , 20, 30, 40.....
 		String sql = "SELECT * FROM NOTICE_VIEW1 WHERE NUM BETWEEN ? AND ?";
 
 		Class.forName(driver);
@@ -51,6 +51,26 @@ public class NoticeService {
 		st.close();
 		con.close();
 		return list;
+	}
+
+	// Scalar (단위값을 얻어온다)
+	public int getCount() throws ClassNotFoundException, SQLException {
+		int count = 0;
+		String sql = "SELECT COUNT(ID) COUNT FROM NOTICE";
+
+		Class.forName(driver);
+		Connection con = DriverManager.getConnection(url, uid, pwd);
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(sql);
+
+		if(rs.next())
+		count = rs.getInt("COUNT");
+
+		rs.close();
+		st.close();
+		con.close();
+
+		return count;
 	}
 
 	public int insert(Notice notice) throws SQLException, ClassNotFoundException {
@@ -126,4 +146,5 @@ public class NoticeService {
 		con.close();
 		return result;
 	}
+
 }
