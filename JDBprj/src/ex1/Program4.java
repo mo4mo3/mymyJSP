@@ -1,5 +1,5 @@
 package ex1;
-
+//delete
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
