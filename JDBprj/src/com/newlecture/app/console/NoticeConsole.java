@@ -10,18 +10,20 @@ import com.newlecture.app.service.NoticeService;
 public class NoticeConsole {
 
 	private NoticeService service;
+	private int page;
 	
 
 	public NoticeConsole() {
 	
 	service = new NoticeService();
+	page =1 ;
 }	
 	
 	
 	
 	public void printNoticeList() throws ClassNotFoundException, SQLException {
 		
-	List<Notice>list = service.getList(2);
+	List<Notice>list = service.getList(page);
 	System.out.println("---------------------------------");
 	System.out.printf("<공지사항> 총 %d 게시글\n", 12);
 	System.out.println("---------------------------------");
@@ -48,5 +50,28 @@ public class NoticeConsole {
 		int menu = Integer.parseInt(menu_);
 		return menu;
 	}
+
+
+
+	public void movePrevList() {
+		if(page ==	1 ) {
+			System.out.println("이전 페이지가 없습니다");
+		return;	
+	}
+		page--;
+		
+	}
+
+
+
+	public void moveNextList() {
+		
+//		if(page ==	? ) {
+//			System.out.println("다음 페이지가 없습니다");
+//		return;	
+//		}
+		page++;		
+	
+		}
 
 }
