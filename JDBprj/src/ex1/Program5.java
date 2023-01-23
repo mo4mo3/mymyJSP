@@ -8,6 +8,9 @@ public class Program5 {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		NoticeConsole console = new NoticeConsole();
+		
+		EXIT:
+			while(true) {
 		console.printNoticeList();
 		int menu  = console.inputNoticeMenu();
 		
@@ -20,12 +23,19 @@ public class Program5 {
 					break;
 		case 4: //글쓰기
 			break;
+		case 5: //종료
+		  	System.out.println("Bye-");
+			break EXIT;
+			default:
+				System.out.println("<<사용방법>> 메뉴는 1~4까지만 입력할 수 있습니다");
+			break;
 		}
+			}
 	}
 
 	private static void Noticeconsole() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
