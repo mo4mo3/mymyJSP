@@ -22,7 +22,7 @@ public class NoticeService {
 
 		String sql = "SELECT * FROM NOTICE";
 
-		Class.forName("driver");
+		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, uid, pwd);
 		Statement st = con.createStatement();
 		ResultSet rs = st.executeQuery(sql);
@@ -60,7 +60,7 @@ public class NoticeService {
 		String sql = "INSERT INTO notice ( " + " title," + " writer_id," + " content," + " files"
 				+ " ) VALUES (?, ?, ?, ? )";
 
-		Class.forName("driver");
+		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, uid, pwd);
 		// Statement st = con.createStatement();
 		PreparedStatement st = con.prepareStatement(sql);
@@ -86,7 +86,7 @@ public class NoticeService {
 		String url = "jdbc:oracle:thin:@localhost:1521/xe";
 		String sql = "UPDATE NOTICE " + "SET" + "    TITLE=?," + "    CONTENT=?," + "    FILES=?" + "    WHERE ID=?";
 
-		Class.forName("driver");
+		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, uid, pwd);
 		// Statement st = con.createStatement();
 		PreparedStatement st = con.prepareStatement(sql);
@@ -109,7 +109,7 @@ public class NoticeService {
 		String url = "jdbc:oracle:thin:@localhost:1521/xe";
 		String sql = "DELETE NOTICE WHERE ID=?";
 
-		Class.forName("driver");
+		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, uid, pwd);
 		// Statement st = con.createStatement();
 		PreparedStatement st = con.prepareStatement(sql);
