@@ -9,24 +9,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/hi")
-public class Nana extends HttpServlet {
+@WebServlet("/calc")
+public class Calc extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
+		
+		String x_ = request.getParameter("x");
+		String y_ = request.getParameter("y");
+		String op = request.getParameter("operator");
 
-		PrintWriter out = response.getWriter();
+		int x = 0;
+		int y = 0;
 
-		String cnt_ = request.getParameter("cnt");
+		if (!x_.equals(""))
+			x = Integer.parseInt(x_);
+		if (!y_.equals(""))
+			y = Integer.parseInt(y_);
 
-		int cnt = 100;
-		if (cnt_ != null && !cnt_.equals(""))
-			cnt = Integer.parseInt(cnt_);
-
-		for (int i = 0; i < cnt; i++)
-			out.println((i + 1) + ":¾È³ç-<br>");
+		int result = 0;
+		if (op.equals("µ¡¼À"))
+			result = x + y;
+		else
+			result = x - y;
+		response.getWriter().printf("result is %d\n", result);
 	}
 }
