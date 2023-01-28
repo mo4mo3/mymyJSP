@@ -80,7 +80,7 @@ public class NoticeDetailController extends HttpServlet {
 		
 		
 		// forward
-		request.getRequestDispatcher("/notice/detail.jsp")
+		request.getRequestDispatcher("/WEB-INF/view/notice/detail.jsp")
 		.forward(request, response);
 
 	}
