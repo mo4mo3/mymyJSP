@@ -221,8 +221,9 @@
 
 				</div>
 				<ul class="-list- center">
-					<li><a class="-text- orange bold" href="?p=1&t=&q=">1</a></li>
-
+				<c:forEach var="i" begin="0" end="4">
+					<li><a class="-text- orange bold" href="?p=${1+i}&t=&q=">${1+i}</a></li>
+				</c:forEach>
 				</ul>
 				<div>
 
