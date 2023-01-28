@@ -180,7 +180,7 @@
 					</thead>
 					<tbody>
 				
-				
+				 
 				 
 		<%-- 			<%
 					List<Notice> list = (List<Notice>)request.getAttribute("list");
@@ -220,9 +220,11 @@
 					<span class="btn btn-prev" onclick="alert('이전 페이지가 없습니다.');">이전</span>
 
 				</div>
+				<c:set var="page" value="${(param.p == null)?1:param.p }"/>
+				<c:set var="starNum" value="${page-(page-1)%5}"  />
 				<ul class="-list- center">
 				<c:forEach var="i" begin="0" end="4">
-					<li><a class="-text- orange bold" href="?p=${1+i}&t=&q=">${1+i}</a></li>
+					<li><a class="-text- orange bold" href="?p=${starNum+i}&t=&q=">${starNum+i}</a></li>
 				</c:forEach>
 				</ul>
 				<div>
