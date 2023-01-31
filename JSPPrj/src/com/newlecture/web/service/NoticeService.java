@@ -14,6 +14,36 @@ import com.newlecture.web.entity.Notice;
 import com.newlecture.web.entity.NoticeView;
 
 public class NoticeService {
+	public int removeNoticeAll(int[] ids) {
+
+		return 0;
+	}
+
+	public int pubNoticeAll(int[] ids) {
+		return 0;
+
+	}
+
+	public int insertNotice(Notice notice) {
+		return 0;
+
+	}
+
+	public int deleteNotice(int id) {
+		return 0;
+
+	}
+
+	public int updateNotice(Notice notice) {
+		return 0;
+
+	}
+
+	List<Notice> getNoticeNewestList() {
+		return null;
+
+	}
+
 	public List<NoticeView> getNoticeList() {
 
 		return getNoticeList("title", "", 1);
@@ -27,12 +57,11 @@ public class NoticeService {
 	}
 
 	public List<NoticeView> getNoticeList(String field/* TITLE, WIRTER_ID */, String query/* A */, int page) {
-		
+
 		List<NoticeView> list = new ArrayList<>();
 
-		String sql = "SELECT * FROM (" + 
-		" SELECT ROWNUM NUM, N.* "+ 
-		" FROM (SELECT * FROM NOTICE_VIEW WHERE " +field+ " LIKE ? ORDER BY REGDATE DESC)N" + ") " + "WHERE NUM BETWEEN ? AND ?";
+		String sql = "SELECT * FROM (" + " SELECT ROWNUM NUM, N.* " + " FROM (SELECT * FROM NOTICE_VIEW WHERE " + field
+				+ " LIKE ? ORDER BY REGDATE DESC)N" + ") " + "WHERE NUM BETWEEN ? AND ?";
 		// 1, 11, 21, 31 -> n = 1+(page-1 )*10
 		// 10, 20, 30, 40 -> page*10
 		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
@@ -57,16 +86,10 @@ public class NoticeService {
 //				String content = rs.getString("CONTENT");
 				int cmtCount = rs.getInt("CMT_COUNT");
 
-				NoticeView notice = new NoticeView(
-						id, 
-						title, 
-						writerId, 
-						regdate, 
-						hit, 
-						files, 
-						//content,
+				NoticeView notice = new NoticeView(id, title, writerId, regdate, hit, files,
+						// content,
 						cmtCount);
-						
+
 				list.add(notice);
 
 			}
@@ -93,8 +116,8 @@ public class NoticeService {
 	}
 
 	public int getNoticeCount(String field, String query) {
-		String sql = "SELECT COUNT(ID) COUNT FROM (" + " SELECT ROWNUM NUM, N.* " + " FROM (SELECT * FROM NOTICE WHERE " + field
-				+ " LIKE ? ORDER BY REGDATE DESC) N" + ")";
+		String sql = "SELECT COUNT(ID) COUNT FROM (" + " SELECT ROWNUM NUM, N.* " + " FROM (SELECT * FROM NOTICE WHERE "
+				+ field + " LIKE ? ORDER BY REGDATE DESC) N" + ")";
 
 		int count = 0;
 		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
@@ -106,10 +129,10 @@ public class NoticeService {
 			st.setString(1, "%" + query + "%");
 
 			ResultSet rs = st.executeQuery();
-			
-			if(rs.next())
-			count = rs.getInt("count");
-			
+
+			if (rs.next())
+				count = rs.getInt("count");
+
 			rs.close();
 			st.close();
 			con.close();
@@ -136,10 +159,9 @@ public class NoticeService {
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setInt(1, id);
 
-
 			ResultSet rs = st.executeQuery();
 
-			if(rs.next()) {
+			if (rs.next()) {
 				int nid = rs.getInt("ID");
 				String title = rs.getString("TITLE");
 				String writerId = rs.getString("WRITER_ID");
@@ -148,7 +170,7 @@ public class NoticeService {
 				String files = rs.getString("FILES");
 				String content = rs.getString("CONTENT");
 
-				 notice = new Notice(nid, title, writerId, regdate, hit, files, content
+				notice = new Notice(nid, title, writerId, regdate, hit, files, content
 
 				);
 
@@ -181,10 +203,9 @@ public class NoticeService {
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setInt(1, id);
 
-
 			ResultSet rs = st.executeQuery();
 
-			if(rs.next()) {
+			if (rs.next()) {
 				int nid = rs.getInt("ID");
 				String title = rs.getString("TITLE");
 				String writerId = rs.getString("WRITER_ID");
@@ -193,7 +214,7 @@ public class NoticeService {
 				String files = rs.getString("FILES");
 				String content = rs.getString("CONTENT");
 
-				 notice = new Notice(nid, title, writerId, regdate, hit, files, content
+				notice = new Notice(nid, title, writerId, regdate, hit, files, content
 
 				);
 
@@ -218,7 +239,7 @@ public class NoticeService {
 
 		String sql = " SELECT ID FROM (SELECT * FROM NOTICE ORDER BY REGDATE DESC)"
 				+ " WHERE REGDATE < (SELECT REGDATE FROM NOTICE WHERE ID =?)" + "AND ROWNUM =1";
-		
+
 		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
 
 		try {
@@ -227,10 +248,9 @@ public class NoticeService {
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setInt(1, id);
 
-
 			ResultSet rs = st.executeQuery();
 
-			if(rs.next()) {
+			if (rs.next()) {
 				int nid = rs.getInt("ID");
 				String title = rs.getString("TITLE");
 				String writerId = rs.getString("WRITER_ID");
@@ -239,7 +259,7 @@ public class NoticeService {
 				String files = rs.getString("FILES");
 				String content = rs.getString("CONTENT");
 
-				 notice = new Notice(nid, title, writerId, regdate, hit, files, content
+				notice = new Notice(nid, title, writerId, regdate, hit, files, content
 
 				);
 
