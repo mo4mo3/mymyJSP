@@ -95,7 +95,10 @@ public class NoticeService {
 			st.setString(1, "%" + query + "%");
 
 			ResultSet rs = st.executeQuery();
+			
+			if(rs.next())
 			count = rs.getInt("count");
+			
 			rs.close();
 			st.close();
 			con.close();
