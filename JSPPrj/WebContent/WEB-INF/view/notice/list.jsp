@@ -189,7 +189,7 @@
 							<tr>
 								<td>${n.id}</td>
 								<td class="title indent text-align-left"><a
-									href="detail?id=${n.id}">${n.title}</a></td>
+									href="detail?id=${n.id}">${n.title}</a><span>[${n.cmtCount}]</span></td>
 								<td>${n.writerId}</td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd"
 										value="${n.regdate}" /></td>
@@ -198,7 +198,7 @@
 						</c:forEach>
 						<%-- 				<%} %> --%>
 					</tbody>
-				</table>
+				</table> 
 			</div>
 			
 			<c:set var="page" value="${(empty param.p)?1:param.p }" /> 
