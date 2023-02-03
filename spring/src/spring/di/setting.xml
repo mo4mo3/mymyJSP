@@ -10,10 +10,10 @@
 
 	<context:component-scan base-package="spring.di.ui, spring.di.entity"></context:component-scan>
 	<!-- Exam exam  = new NewlecExam(); -->
-<!-- 	<bean id="exam1" class="spring.di.entity.NewlecExam" p:kor="10"
+<bean id="exam1" class="spring.di.entity.NewlecExam" p:kor="10"
 		p:eng="10" />
-	<bean id="exam2" class="spring.di.entity.NewlecExam" p:kor="20"
-		p:eng="20" /> -->
+<!-- 	<bean id="exam2" class="spring.di.entity.NewlecExam" p:kor="20"
+		p:eng="20" /> --> 
 	<!-- <bean id="exam" class="spring.di.entity.NewlecExam"> <constructor-arg 
 		name="ko r" value="10" /> <constructor-arg name="eng" value="20" /> <constructor-arg 
 		name="com" value="30" /> <constructor-arg name="math" value="40" /> </bean> -->
