@@ -14,16 +14,16 @@ import com.newlecture.web.service.NoticeService;
 @RequestMapping("/api/notice/")
 public class NoticeController {
 	
+	
 	@Autowired
 	private NoticeService service;
 	
 	
 	@RequestMapping("list")
-	
 	public Notice list() throws ClassNotFoundException, SQLException {
 		
-		
 		List<Notice> list = service.getList(1, "title", "");
-		return  list.get(0);
-	} 
+
+		return list.get(0);
+	}
 }
